@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "coeusfactory"
-version = "0.1.0"
+version = "0.2.0"
 description = "A Database Connector interface that follows a factory model pattern."
 readme = "README.md"
 authors = ["Almer Mendoza <atmalmer23@gmail.com>"]
