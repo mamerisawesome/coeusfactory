@@ -1,0 +1,8 @@
+.vscode
+
+.pytest_cache
+py_modules
+*.pyc
+*.egg-info
+
+htmlcov
