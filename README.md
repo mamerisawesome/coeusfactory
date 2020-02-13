@@ -37,8 +37,8 @@ For every first step for any database, initialization and connections will come 
 ```python
 from coeusfactory import ConnectorFactory
 cf = ConnectorFactory(
-    interface="<db-name>",
-    db="<table/collection-name>"
+    interface="<database>",
+    db="<database-name>"
     # other config or atuh params for the db
     username="",
     password=""
