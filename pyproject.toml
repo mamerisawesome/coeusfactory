@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "coeusfactory"
-version = "0.2.2"
+version = "0.3.0"
 description = "A Database Connector interface that follows a factory model pattern."
 repository = "https://github.com/mamerisawesome/coeusfactory"
 keywords = [
