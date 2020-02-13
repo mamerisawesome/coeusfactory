@@ -70,11 +70,8 @@ class MongoConnector(BaseConnector):
 
     @property
     def model(self):
-        return self.model
+        return self._model
 
     @model.setter
     def model(self, collection_name):
-        try:
-            return self.db[collection_name]
-        except TypeError:
-            return None
+        self._model = self.db[collection_name]

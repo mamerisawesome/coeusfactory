@@ -1,8 +1,8 @@
-class BaseConnector():
+class BaseConnector(object):
     def __init__(self, name, **kwargs):
         self.name = name
         self.db = None
-        self.model = None
+        self._model = None
 
         if "test" in kwargs:
             config = self._handle_init_kwargs(kwargs)

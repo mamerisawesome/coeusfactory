@@ -2,27 +2,35 @@ from rainbow import RainbowLogger
 logger = RainbowLogger(__name__)
 
 
-class BaseRepository():
-    def __init__(self, model, to_entity=None, to_database=None, name=__name__):
+class BaseRepository(object):
+    def __init__(self, model, database=None, name=__name__):
         self.model = model
-        self.to_entity = to_entity
-        self.to_database = to_database
+        self.database = database
         logger.info("{} successfully initialized.".format(name))
 
     def get_all(self):
-        return
+        return False
 
-    def get_by_id(self):
-        return
+    def get_by_id(self, id):
+        return False
 
-    def add(self):
-        return
+    def get(self, query):
+        return False
 
-    def remove(self):
-        return
+    def add(self, value):
+        return False
 
-    def update(self):
-        return
+    def delete_by_id(self, id):
+        return False
 
-    def count(self):
-        return
+    def delete(self, query):
+        return False
+
+    def update_by_id(self, id, value):
+        return False
+
+    def update(self, query, value):
+        return False
+
+    def count(self, query={}):
+        return False
