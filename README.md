@@ -39,7 +39,7 @@ from coeusfactory import ConnectorFactory
 cf = ConnectorFactory(
     interface="<database>",
     db="<database-name>"
-    # other config or atuh params for the db
+    # other config or auth params for the db
     username="",
     password=""
 )
