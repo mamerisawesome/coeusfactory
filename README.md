@@ -25,3 +25,65 @@ Then add necessary database interfaces as necessary. Below are the libraries tha
 |----------|----------------|
 | MongoDB  | `pymongo`      |
 | DynamoDB | `boto3`        |
+
+## Getting Started
+
+For every first step for any database, initialization and connections will come first. As long as it is supported in the factory, you can pass the parameters you normally handle in supported databse interfaces.
+
+```python
+from coeusfactory import ConnectorFactory
+cf = ConnectorFactory(
+    interface="<db-name>",
+    db="<table/collection-name>"
+    # other config or atuh params for the db
+    username="",
+    password=""
+)
+
+# db init
+cf.handler.initialize()
+cf.handler.connect()
+```
+
+## Connector Methods
+
+### Getting / Creating a model
+
+```python
+Users = cf.get_model("Users")
+Carts = cf.get_model("Carts")
+CustomerReviews = cf.get_model("CustomerReviews")
+```
+
+### Retrieval
+
+```python
+Users.get_by_id(0)
+Users.get({"name": "Test User"})
+```
+
+### Insertion
+
+```python
+Users.add({"name": "Test User"})
+```
+
+### Deletion
+
+```python
+Users.delete_by_id(0)
+Users.delete({"name": "Test User"})
+```
+
+### Modification
+
+```python
+Users.update_by_id(0, {"name": "New Name"})
+Users.update({"name": "Test User"}, {"name": "New Name"})
+```
+
+### Entry Count
+
+```python
+Users.count()
+```
