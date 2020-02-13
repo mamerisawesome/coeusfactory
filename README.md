@@ -16,15 +16,19 @@ A Database Connector interface that follows a factory model pattern.
 
 ```bash
 # if using poetry
+# highly recommended
 poetry add coeusfactory
+
+# also works with standard pip
+pip install coeusfactory
 ```
 
 Then add necessary database interfaces as necessary. Below are the libraries that works with Coeus Factory.
 
-| Database | Python Library |
-|----------|----------------|
-| MongoDB  | `pymongo`      |
-| DynamoDB | `boto3`        |
+| Database | Python Library | Status            |
+|----------|----------------|-------------------|
+| **MongoDB**  | *pymongo*      | <span style="color:green">Passed unit tests</span> |
+| **DynamoDB** | *boto3*        | <span style="color:yellow">WIP</span>              |
 
 ## Getting Started
 
