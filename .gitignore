@@ -4,5 +4,6 @@
 py_modules
 *.pyc
 *.egg-info
+dist
 
 htmlcov
