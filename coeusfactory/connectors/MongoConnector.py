@@ -66,6 +66,7 @@ class MongoConnector(BaseConnector):
 
     def disconnect(self):
         self.client.close()
+        self.client = None
         self.event.sendMessage("disconnected")
 
     @property

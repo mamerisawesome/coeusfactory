@@ -14,41 +14,34 @@ class MongoRepository(BaseRepository):
         )
 
     def get_all(self):
-        return [c for c in self.model.find(sort=[('_id', DESCENDING)])]
+        return [c for c in self.model.find(sort=[("_id", DESCENDING)])]
 
     def get_by_id(self, id):
-        return self.model.find_one({"_id": id}, sort=[('_id', DESCENDING)])
+        return self.get({"_id": id})
 
     def get(self, query):
-        return self.model.find_one(query, sort=[('_id', DESCENDING)])
+        return self.model.find_one(query, sort=[("_id", DESCENDING)])
 
     def add(self, value):
         return self.model.insert_one(value)
 
     def delete_by_id(self, id):
-        return self.model.find_one_and_delete(
-            {"_id": id},
-            sort=[('_id', DESCENDING)]
-        )
+        return self.delete({"_id": id})
 
     def delete(self, query):
         return self.model.find_one_and_delete(
             query,
-            sort=[('_id', DESCENDING)]
+            sort=[("_id", DESCENDING)]
         )
 
     def update_by_id(self, id, value):
-        return self.model.find_one_and_update(
-            {"_id": id},
-            {"$set": value},
-            sort=[('_id', DESCENDING)]
-        )
+        return self.update({"_id": id}, value)
 
     def update(self, query, value):
         return self.model.find_one_and_update(
             query,
             {"$set": value},
-            sort=[('_id', DESCENDING)]
+            sort=[("_id", DESCENDING)]
         )
 
     def count(self, query={}):
