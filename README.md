@@ -27,8 +27,8 @@ Then add necessary database interfaces as necessary. Below are the libraries tha
 
 | Database | Python Library | Status            |
 |----------|----------------|-------------------|
-| **MongoDB**  | *pymongo*      | <span style="color:green">Passed unit tests</span> |
-| **DynamoDB** | *boto3*        | <span style="color:yellow">WIP</span>              |
+| **MongoDB**  | *pymongo*      | ![Passed unit tests](https://img.shields.io/static/v1?label=&message=Passed%20unit%20tests&color=green) |
+| **DynamoDB** | *boto3*        | ![Needs unit tests](https://img.shields.io/static/v1?label=&message=Needs%20unit%20tests&color=yellow) |
 
 ## Getting Started
 
