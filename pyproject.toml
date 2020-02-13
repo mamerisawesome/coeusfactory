@@ -1,7 +1,13 @@
 [tool.poetry]
 name = "coeusfactory"
-version = "0.2.0"
+version = "0.2.1"
 description = "A Database Connector interface that follows a factory model pattern."
+repository = "https://github.com/mamerisawesome/coeusfactory"
+keywords = [
+    "database",
+    "database-factory",
+    "db-connector",
+]
 readme = "README.md"
 authors = ["Almer Mendoza <atmalmer23@gmail.com>"]
 license = "BSD-3-Clause"
