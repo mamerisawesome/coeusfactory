@@ -3,7 +3,7 @@
 [![made-with-python](https://img.shields.io/badge/Made%20with-Python-1f425f.svg)](https://www.python.org/)
 [![PyPI pyversions](https://img.shields.io/pypi/pyversions/coeusfactory)](https://pypi.python.org/pypi/coeusfactory/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/commit-activity)
-[![Coverage](https://raw.githubusercontent.com/mamerisawesome/coeusfactory/master/assets/coverage.svg)](https://github.com/mamerisawesome/coeusfactory)
+[![Coverage](https://raw.githubusercontent.com/mamerisawesome/coeusfactory/master/assets/coverage.svg?sanitize=true)](https://github.com/mamerisawesome/coeusfactory)
 [![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:atmalmer23@gmail.com)
 [![Awesome Badges](https://img.shields.io/badge/badges-awesome-green.svg)](https://github.com/Naereen/badges)
 
