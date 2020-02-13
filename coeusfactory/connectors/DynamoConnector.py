@@ -34,12 +34,12 @@ class DynamoConnector(BaseConnector):
         self.event.sendMessage("connected")
 
     def disconnect(self):
-        self.client.close()
+        self.client = None
         self.event.sendMessage("disconnected")
 
     @property
     def model(self):
-        return self.model
+        return self._model
 
     @model.setter
     def model(self, table_name):
@@ -79,4 +79,4 @@ class DynamoConnector(BaseConnector):
             waiter = table.meta.client.get_waiter("table_exists")
             waiter.wait(TableName=table_name)
 
-        return dynamo.Table(table_name)
+        self._model = dynamo.Table(table_name)
