@@ -13,14 +13,26 @@ class MongoRepository(BaseRepository):
             name=name
         )
 
-    def get_all(self):
-        return [c for c in self.model.find(sort=[("_id", DESCENDING)])]
+    def get_all(self, targets=[]):
+        query_targets = self._get_targets(targets)
+        cursor = self.model.find(
+            {},
+            query_targets,
+            sort=[("_id", DESCENDING)]
+        )
+
+        return [c for c in cursor]
 
     def get_by_id(self, id):
         return self.get({"_id": id})
 
-    def get(self, query):
-        return self.model.find_one(query, sort=[("_id", DESCENDING)])
+    def get(self, query, targets=[]):
+        query_targets = self._get_targets(targets)
+        return self.model.find_one(
+            query,
+            query_targets,
+            sort=[("_id", DESCENDING)]
+        )
 
     def add(self, value):
         return self.model.insert_one(value)
@@ -34,15 +46,40 @@ class MongoRepository(BaseRepository):
             sort=[("_id", DESCENDING)]
         )
 
-    def update_by_id(self, id, value):
-        return self.update({"_id": id}, value)
+    def update_by_id(self, id, value, **kwargs):
+        return self.update({"_id": id}, value, **kwargs)
 
-    def update(self, query, value):
+    def update(self, query, value, mode="set", upsert=False, date_key=None):
+        from pymongo.collection import ReturnDocument
+
+        print(query)
+        mode = "${}".format(mode)
+        update_operations = {
+            mode: value
+        }
+
+        if date_key:
+            update_operations["$currentDate"] = {
+                date_key: True
+            }
+
+        print(update_operations)
         return self.model.find_one_and_update(
             query,
-            {"$set": value},
-            sort=[("_id", DESCENDING)]
+            update_operations,
+            sort=[("_id", DESCENDING)],
+            upsert=upsert,
+            return_document=ReturnDocument.AFTER
         )
 
     def count(self, query={}):
         return self.model.count_documents(query)
+
+    def _get_targets(self, targets=None):
+        if not targets:
+            return None
+
+        query_targets = {}
+        for k in targets:
+            query_targets[k] = 1
+        return query_targets
