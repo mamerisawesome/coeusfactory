@@ -28,11 +28,16 @@ class ConnectorFactory():
 
     def get_model(self, model):
         interface = self.interface
+        if not model or not model[0].isalpha():
+            return None
 
         if self.raw_name:
             self.handler.model = model
         else:
-            self.handler.model = model[0].upper() + model[1:].lower()
+            model_name = model[0].upper()
+            if len(model) > 1:
+                model_name = model_name + model[1:].lower()
+            self.handler.model = model_name
 
         module_prefix = interface[0].upper() + interface.lower()[1:]
         connectors = __import__("coeusfactory.repositories")

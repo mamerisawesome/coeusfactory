@@ -75,4 +75,7 @@ class MongoConnector(BaseConnector):
 
     @model.setter
     def model(self, collection_name):
+        if "$" in collection_name:
+            return None
+
         self._model = self.db[collection_name]
