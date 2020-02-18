@@ -7,3 +7,4 @@ py_modules
 dist
 
 htmlcov
+.hypothesis
