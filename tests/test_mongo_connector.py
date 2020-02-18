@@ -75,3 +75,30 @@ def test_mongo_model_switch_collection():
     cf.handler.model = "test_collection_two"
     cf.handler.model.insert_one({"test_param": "Hello"})
     assert cf.handler.model.find_one({"test_param": "Hello"}) is not None
+
+def test_mongo_raw_model_name():
+    from coeusfactory import ConnectorFactory
+    cf = ConnectorFactory(
+        "mongo",
+        db="test"
+    )
+
+    cf.handler.initialize()
+    cf.handler.connect()
+    users = cf.get_model("users")
+
+    assert "Users" in cf.handler.db.list_collection_names()
+
+def test_mongo_raw_model_name():
+    from coeusfactory import ConnectorFactory
+    cf = ConnectorFactory(
+        "mongo",
+        db="test",
+        raw_name=True
+    )
+
+    cf.handler.initialize()
+    cf.handler.connect()
+    users = cf.get_model("users")
+
+    assert "users" in cf.handler.db.list_collection_names()

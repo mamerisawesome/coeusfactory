@@ -3,7 +3,7 @@ logger = RainbowLogger(__name__)
 
 
 class ConnectorFactory():
-    def __init__(self, interface=None, **kwargs):
+    def __init__(self, interface=None, raw_name=False, **kwargs):
         if not interface:
             logger.warning("No database interface selected")
             self.handler = None
@@ -12,6 +12,7 @@ class ConnectorFactory():
         from pubsub import pub
         self.event = pub
         self.interface = interface
+        self.raw_name = raw_name
         self.handler = self._set_connector(**kwargs)
         self._set_events(['initialized', 'connected', 'disconnected'])
 
@@ -27,7 +28,11 @@ class ConnectorFactory():
 
     def get_model(self, model):
         interface = self.interface
-        self.handler.model = model[0].upper() + model[1:].lower()
+
+        if self.raw_name:
+            self.handler.model = model
+        else:
+            self.handler.model = model[0].upper() + model[1:].lower()
 
         module_prefix = interface[0].upper() + interface.lower()[1:]
         connectors = __import__("coeusfactory.repositories")
