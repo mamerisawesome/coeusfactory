@@ -52,7 +52,6 @@ class MongoRepository(BaseRepository):
     def update(self, query, value, mode="set", upsert=False, date_key=None):
         from pymongo.collection import ReturnDocument
 
-        print(query)
         mode = "${}".format(mode)
         update_operations = {
             mode: value
@@ -63,7 +62,6 @@ class MongoRepository(BaseRepository):
                 date_key: True
             }
 
-        print(update_operations)
         return self.model.find_one_and_update(
             query,
             update_operations,
