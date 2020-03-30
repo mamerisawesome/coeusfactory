@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "coeusfactory"
-version = "0.5.2"
+version = "0.5.4"
 description = "A Database Connector interface that follows a factory model pattern."
 repository = "https://github.com/mamerisawesome/coeusfactory"
 keywords = [
@@ -10,7 +10,7 @@ keywords = [
 ]
 readme = "README.md"
 authors = ["Almer Mendoza <atmalmer23@gmail.com>"]
-license = "BSD-3-Clause"
+license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.6"
