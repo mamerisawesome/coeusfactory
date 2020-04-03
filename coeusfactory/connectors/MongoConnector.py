@@ -1,6 +1,6 @@
 from .BaseConnector import BaseConnector
-from rainbow import RainbowLogger
-logger = RainbowLogger(__name__)
+import logging
+logger = logging.getLogger(__name__)
 
 
 class MongoConnector(BaseConnector):

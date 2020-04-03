@@ -1,6 +1,6 @@
-from rainbow import RainbowLogger
+import logging
 from .BaseRepository import BaseRepository
-logger = RainbowLogger(__name__)
+logger = logging.getLogger(__name__)
 
 
 class DynamoRepository(BaseRepository):
