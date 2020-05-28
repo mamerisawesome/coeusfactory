@@ -6,7 +6,6 @@ class BaseRepository(object):
     def __init__(self, model, database=None, name=__name__):
         self.model = model
         self.database = database
-        logger.info("{} successfully initialized.".format(name))
 
     def get_all(self):
         return False
